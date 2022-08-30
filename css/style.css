@@ -1,0 +1,263 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* GRID GENERAL*/
+.grilla{
+    background-color:#f7eec1;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr .2fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "header header header "
+                        "menu menu menu"
+                        "main main main"
+                        "pie pie pie";
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    margin: 10px 10px 10px 10px;
+}
+
+.header{
+    grid-area: header;
+    background-color: #d98e04;
+}
+
+main{
+    grid-area: main;
+    justify-content: center;    
+}
+
+.menuGeneral{
+    grid-area: menu;
+    justify-content: center;
+}
+
+/* PIE */
+.pie{
+    grid-area: pie;
+    background-color: #ca8505;
+}
+
+
+/* Estilos titulo */
+.titulo{
+    color: white;
+    font-size: xx-large;
+    font-family: satisfy;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.subtituloHeader{
+    color: white;
+    font-family: satisfy;
+    text-align: center;
+    font-size:medium;
+}
+.subtitulos{
+    font-family: satisfy;
+    text-align:left;
+}
+
+.subtitulosGeneral{
+    font-family: satisfy;
+    text-align:center;
+}
+
+/* GRILLA PAG SOBRE NOSOTROS */
+.grillaSobreNos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "subSobreNos subSobreNos"
+                        "tarjeta1 tarjeta2"
+                        "tarjeta3 tarjeta4";
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+.tarjeta{
+    background-color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    width: 70%;
+    margin: auto;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ca8505;
+    border-radius: 15px;
+}
+
+.subSobreNos{
+    grid-area: subSobreNos;
+    margin-top: 20px;
+}
+
+.estiloSubSobreNos{
+    text-align: center;
+    margin:auto;
+    font-family: satisfy;
+}
+
+.tarjeta1{
+    grid-area: tarjeta1;
+}
+
+.tarjeta2{
+    grid-area: tarjeta2;
+}
+
+.tarjeta3{
+    grid-area: tarjeta3;
+}
+
+.tarjeta4{
+    grid-area: tarjeta4;
+}
+
+/* GRADIENTE */
+body{
+    height: 100vh;
+    display: flex;
+    background-image: linear-gradient(to right, rgba(250,250,250,1) 0%, rgba(241,231,103,1) 100%);
+}
+
+/* TRANSFORM */
+
+.fotoTranslate{
+   -webkit-transition: 3s linear; 
+   transition: 3s linear;
+}
+
+.fotoTranslate:hover{
+    -webkit-transform: translate(400px);
+    transform: translate(400);
+}
+
+/* TRANSICIÓN */
+.menu{
+    display: block;
+    position:relative;
+    height: 100%;
+    width: 150px;
+    margin: 1cm;
+    overflow: hidden;
+}
+
+.menuIndex{
+    border-top: #f7eec1 0.3em solid;
+    color: black;
+}
+
+.menuColecciones{
+    border-top: #f7eec1 0.3em solid;
+    color:black;
+}
+
+.menuLocales{
+    border-top: #f7eec1 0.3em solid;
+    color:black;
+}
+
+.menuSobreNosotros{
+    border-top: #f7eec1 0.3em solid;
+    color:black;
+}
+
+.menuContacto{
+    border-top: #f7eec1 0.3em solid;
+    color:black;
+}
+
+.menu > span {
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 0%;
+    transition: 0.5s ease-in-out;
+    -webkit-transition: 0.5s ease-in-out;
+}
+
+.menu:after, .menu > span > span{
+    display: block;
+    text-align: center;
+    border-radius: 0em;
+    padding: 2em 0 1.5em;
+}
+
+.menu:after {
+    content:attr(data-title);
+    width: 100%;
+    background-color:#d98e04;
+    color:white;
+}
+
+.menu > span >span{
+    width: 150px;
+    color:white;
+}
+
+.menu.menuIndex > span > span{
+    background: #ca8505;
+}
+
+.menu.menuColecciones > span > span{
+    background: #ca8505;
+}
+
+.menu.menuLocales > span > span{
+    background: #ca8505;
+}
+
+.menu.menuSobreNosotros > span > span{
+    background: #ca8505;
+}
+
+.menu.menuContacto > span > span{
+    background: #ca8505;
+}
+
+.menu:hover > span{
+    height: 100%;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li a{
+    display: inline;
+    float:left;
+    text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+/* RESPONSIVE */
+@media only screen and (max-width: 1024px) {
+    .grilla{
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "header header"
+                            "menu main"
+                            "menu main"
+                            "pie pie";
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .grilla{
+        grid-template-columns: 1fr;
+        grid-template-areas: "header"
+                            "menu"
+                            "main"
+                            "pie";
+    }
+}
