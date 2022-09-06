@@ -7,16 +7,59 @@
 /* GRID GENERAL*/
 .grilla{
     background-color:#f7eec1;
+    height: 100%;
+    display: grid;
+    gap: 10px;
+    grid-template-rows: 100px 100px 1fr 50px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "header header header "
+                        "menuGrilla menuGrilla menuGrilla"
+                        "main main main"
+                        "pie pie pie";
+    /* margin: 10px 10px 10px; */
+}
+
+.header{
+    grid-area: header;
+    background-color: #d98e04;
+}
+
+main{
+    grid-area: main;
+    justify-content: center;    
+}
+
+.menuGeneral{
+    grid-area: menuGrilla;
+    justify-content: center;
+}
+
+/* PIE */
+.pie{
+    grid-area: pie;
+    background-color: #ca8505;
+}
+
+
+/* Estilos titulo */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* GRID GENERAL*/
+.grilla{
+    background-color:#f7eec1;
     height: 100vh;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr .2fr;
+    grid-template-rows: .3fr .3fr 1fr .2fr;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: "header header header "
                         "menu menu menu"
                         "main main main"
                         "pie pie pie";
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
+    gap: 10px;
     margin: 10px 10px 10px 10px;
 }
 
@@ -32,7 +75,8 @@ main{
 
 .menuGeneral{
     grid-area: menu;
-    justify-content: center;
+    /* justify-content: center;
+    align-items: center; */
 }
 
 /* PIE */
@@ -82,15 +126,20 @@ main{
     background-color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: black;
-    width: 70%;
+    height: 100%;
+    width: 100%;
     margin: auto;
     text-align: justify;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid #ca8505;
+    transition: border 1s linear;
     border-radius: 15px;
+}
+
+.tarjeta:hover{
+    border: 2px solid #ca8505;
 }
 
 .subSobreNos{
@@ -122,7 +171,6 @@ main{
 
 /* GRADIENTE */
 body{
-    height: 100vh;
     display: flex;
     background-image: linear-gradient(to right, rgba(250,250,250,1) 0%, rgba(241,231,103,1) 100%);
 }
@@ -144,8 +192,7 @@ body{
     display: block;
     position:relative;
     height: 100%;
-    width: 150px;
-    margin: 1cm;
+    width:100%;
     overflow: hidden;
 }
 
@@ -201,34 +248,48 @@ body{
 }
 
 .menu > span >span{
-    width: 150px;
+    width: 100%;
     color:white;
 }
 
 .menu.menuIndex > span > span{
     background: #ca8505;
+    grid-area: areaInicio;
 }
 
 .menu.menuColecciones > span > span{
     background: #ca8505;
+    grid-area: areaColecciones;
 }
 
 .menu.menuLocales > span > span{
     background: #ca8505;
+    grid-area: areaLocales;
 }
 
 .menu.menuSobreNosotros > span > span{
     background: #ca8505;
+    grid-area: areaSobreNosotros;
 }
 
 .menu.menuContacto > span > span{
     background: #ca8505;
+    grid-area: areaContacto;
 }
 
 .menu:hover > span{
     height: 100%;
 }
-
+.estiloLista{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    /* gap: 10px; */
+    grid-template-rows: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "areaInicio areaColecciones areaLocales areaSobreNosotros areaContacto";
+    /* margin: 10px 10px 10px 10px 10px; */
+}
 ul{
     list-style-type: none;
     margin: 0;
@@ -236,28 +297,56 @@ ul{
 }
 
 li a{
-    display: inline;
-    float:left;
+    /* display:inline;
+    float:left; */
     text-decoration: none;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 /* RESPONSIVE */
-@media only screen and (max-width: 1024px) {
+/* @media (min-width: 450px){
     .grilla{
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas: "header header"
-                            "menu main"
-                            "menu main"
-                            "pie pie";
-    }
-}
-
-@media only screen and (max-width: 500px) {
-    .grilla{
+        display: grid;
         grid-template-columns: 1fr;
+        grid-template-rows: 100px 100px 1fr 50px;
         grid-template-areas: "header"
-                            "menu"
+                            "menuGrilla"
                             "main"
                             "pie";
     }
 }
+
+@media (min-width: 768px){
+    .grilla{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 100px 100px 1fr 50px;
+        grid-template-areas: "header header"
+                            "menuGrilla menuGrilla"
+                            "main main"
+                            "pie pie";
+    }
+}
+@media (min-width: 1200px) {
+    .grilla{
+        display: grid;
+        gap: 10px;
+        grid-template-rows: 100px 100px 1fr 50px;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: "header header header "
+                            "menuGrilla menuGrilla menuGrilla"
+                            "main main main"
+                            "pie pie pie";
+        /* margin: 10px 10px 10px; */
+    }
+}  */
+
+/* @media (max-width: 575.98px){
+    .grilla{
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px 100px 1fr 50px;
+        grid-template-areas: "header"
+                            "menuGrilla"
+                            "main"
+                            "pie";
+    }
+} */
